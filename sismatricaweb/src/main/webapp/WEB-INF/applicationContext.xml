@@ -15,7 +15,7 @@
 	<context:annotation-config />
 	<!-- Define o pacote onde o Spring vai procurar por beans anotados -->
 	<context:component-scan
-		base-package="br.com.sismatrica" />
+		base-package="br.com.sismatricaweb" />
 
 	<!-- define que as transaçoes irao ser anotadas -->
 	<tx:annotation-driven />
@@ -35,7 +35,7 @@
 		<property name="jpaVendorAdapter">
 			<bean class="org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter">
 				<property name="databasePlatform" value="org.hibernate.dialect.MySQLDialect" />
-				<property name="hibernate.hbm2ddl.auto" value="create" />
+				<!--  <property name="hibernate.hbm2ddl.auto" value="create" /> -->
 				<property name="showSql" value="true" />
 			</bean>
 		</property>
