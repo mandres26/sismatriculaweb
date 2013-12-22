@@ -19,14 +19,14 @@
 	
 	<!-- Replaces ${...} placeholders with values from a properties file -->
 	<!-- (in this case, JDBC-related settings for th edataSource definition below) -->
-		<context:property-placeholder location="classpath:jdbc.properties"/>
+		<!--  <context:property-placeholder location="classpath:jdbc.properties"/> -->
 	 
     <bean id="dataSource"
 		class="com.mchange.v2.c3p0.ComboPooledDataSource" destroy-method="close">
-		<property name="driverClass" value="${jdbc.driverClassName}" />
-		<property name="jdbcUrl" value="${jdbc.url}" />
-    		<property name="user" value="${jdbc.username}" />
-		<property name="password" value="${jdbc.password}" />
+		<property name="driverClass" value="com.mysql.jdbc.Driver" />
+		<property name="jdbcUrl" value="jdbc:mysql://localhost:3306/sismatricula" />
+    		<property name="user" value="root" />
+		<!--  <property name="password" value="${jdbc.password}" /> -->
 		<property name="initialPoolSize" value="3" />
 		<property name="minPoolSize" value="6" />
 		<property name="maxPoolSize" value="20" />
@@ -39,13 +39,13 @@
 		<property name="jpaVendorAdapter">
 			<bean class="org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter">
 				<property name="showSql" value="true" />
-				<property name="databasePlatform" value="${hibernate.databasePlatform}" />
+				<property name="databasePlatform" value="org.hibernate.dialect.MySQLDialect" />
 			</bean>
 		</property>
 		<property name="jpaProperties">
 			<props>
 				<prop key="hibernate.format_sql">true</prop>
-				<prop key="hibernate.default_schema">public</prop>
+				<!--  <prop key="hibernate.default_schema">public</prop> -->
 				<prop key="hibernate.hbm2ddl.auto">update</prop> <!-- create | create-drop | validate | update -->
 				<prop key="hibernate.ejb.naming_strategy">org.hibernate.cfg.ImprovedNamingStrategy</prop>
 			</props>
