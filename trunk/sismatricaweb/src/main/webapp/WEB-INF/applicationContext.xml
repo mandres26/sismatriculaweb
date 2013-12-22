@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
-	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
-	xmlns:aop="http://www.springframework.org/schema/aop" xmlns:tx="http://www.springframework.org/schema/tx"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:tx="http://www.springframework.org/schema/tx"
 	xsi:schemaLocation="http://www.springframework.org/schema/beans 
 						http://www.springframework.org/schema/beans/spring-beans-3.1.xsd 
 						http://www.springframework.org/schema/context 
@@ -11,38 +13,11 @@
 						http://www.springframework.org/schema/aop 
 						http://www.springframework.org/schema/aop/spring-aop-3.1.xsd">
 
-	<!-- Seta anotaçoes para serem usadas pelo Spring -->
+	<!-- Activates scanning of @Autowired -->
 	<context:annotation-config />
-	<!-- Define o pacote onde o Spring vai procurar por beans anotados -->
-	<context:component-scan
-		base-package="br.com.sismatricaweb" />
-
-	<!-- define que as transaçoes irao ser anotadas -->
+	<!-- Scans for @Repository, @Service and @Component -->
+	<context:component-scan base-package="br.com.sismatricaweb" />
+	<!-- Enable @Transactional support -->
 	<tx:annotation-driven />
-	<!-- Configuracao do Banco de Dados -->
-	<bean id="dataSource"
-		class="org.springframework.jdbc.datasource.DriverManagerDataSource">
-		<property name="driverClassName" value="com.mysql.jdbc.Driver" />
-		<property name="url" value="jdbc:mysql://localhost:3306/sismatricula" />
-		<property name="username" value="root" />
-		<property name="password" value="" />
-	</bean>
-	<!-- Configuracao do Hibernate -->
-	<bean id="entityManagerFactory"
-		class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">
-		<property name="persistenceUnitName" value="SisMatriculaPU" />
-		<property name="dataSource" ref="dataSource" />
-		<property name="jpaVendorAdapter">
-			<bean class="org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter">
-				<property name="databasePlatform" value="org.hibernate.dialect.MySQLDialect" />
-				<!--  <property name="hibernate.hbm2ddl.auto" value="create" /> -->
-				<property name="showSql" value="true" />
-			</bean>
-		</property>
-	</bean>
-	<!-- Configuracao do gerente de transacoes do Spring -->
-	<bean id="transactionManager" class="org.springframework.orm.jpa.JpaTransactionManager">
-		<property name="entityManagerFactory" ref="entityManagerFactory" />
-	</bean>
-</beans>
 	
+</beans>
