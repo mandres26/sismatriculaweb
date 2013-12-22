@@ -19,7 +19,7 @@
 	
 	<!-- Replaces ${...} placeholders with values from a properties file -->
 	<!-- (in this case, JDBC-related settings for th edataSource definition below) -->
-	<!--  <context:property-placeholder location="classpath:jdbc.properties"/> -->
+		<context:property-placeholder location="classpath:jdbc.properties"/>
 	 
     <bean id="dataSource"
 		class="com.mchange.v2.c3p0.ComboPooledDataSource" destroy-method="close">
