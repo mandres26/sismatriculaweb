@@ -29,7 +29,7 @@ public class Atleta implements Serializable {
 
 	@Column(name = "DTA_NASCIMENTO")
 	@Temporal(TemporalType.DATE)
-	private Date dataNascimento;
+	private Date dtaNascimento;
 
 	@Column(name = "IDF_POSICAO")
 	@Enumerated(EnumType.ORDINAL)
@@ -55,12 +55,12 @@ public class Atleta implements Serializable {
 		this.nome = nome;
 	}
 
-	public Date getDataNascimento() {
-		return dataNascimento;
+	public Date getDtaNascimento() {
+		return dtaNascimento;
 	}
 
-	public void setDataNascimento(Date dataNascimento) {
-		this.dataNascimento = dataNascimento;
+	public void setDtaNascimento(Date dtaNascimento) {
+		this.dtaNascimento = dtaNascimento;
 	}
 
 	public Posicao getPosicao() {
