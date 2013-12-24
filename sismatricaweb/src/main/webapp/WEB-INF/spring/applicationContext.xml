@@ -17,6 +17,6 @@
 	<context:component-scan base-package="br.com.sismatricaweb" />
 	<!-- Enable @Transactional support -->
 	<tx:annotation-driven />
-
+	<import resource="applicationContext-persistence.xml" />
 
 </beans>
