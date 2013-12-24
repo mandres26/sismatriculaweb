@@ -5,6 +5,7 @@
 	id="WebApp_ID">
 	<display-name>sismatricaweb</display-name>
 	<!-- Configuracao do Spring -->
+	 
 	<context-param>
 		<param-name>contextConfigLocation</param-name>
 		<param-value>
@@ -12,6 +13,7 @@
 		/WEB-INF/applicationContext-persistence.xml
 		</param-value>
 	</context-param>
+	
 	<listener>
 		<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
 	</listener>
